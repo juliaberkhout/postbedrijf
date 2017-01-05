@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>Apache Wicket Quickstart</title>
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+	</head>
+	<body>
+		<div id="hd">
+			<div id="logo">
+				<img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
+				<h1>Postbedrijf</h1>
+			</div>
+		</div>
+		<div id="bd">
+			<h2>Meld je aan</h2>
+			Vul je gegenvens in:
+			<form wicket:id="aanmeldForm">
+				<div>Naam: <input type="text" wicket:id="naam"/></div>
+				<div>Straat: <input type="text" wicket:id="straat"/></div>
+				<div>Huisnummer: <input type="text" wicket:id="huisnummer"/></div>
+				<div>Postcode: <input type="text" wicket:id="postcode"/></div>
+				<div>Plaats: <input type="text" wicket:id="plaats"/></div>
+				<div>Emailadres: <input type="text" wicket:id="emailadres"/></div>
+			</form>
+			<a wicket:id="volgende" #href></a>
+			
+			
+		</div>
+	</body>
+</html>
