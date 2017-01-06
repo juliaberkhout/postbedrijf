@@ -18,4 +18,9 @@ public enum PakketStatus {
 	{
 		return omschrijving;
 	}
+	
+	@Override
+	public String toString() {
+		return getOmschrijving();
+	}
 }

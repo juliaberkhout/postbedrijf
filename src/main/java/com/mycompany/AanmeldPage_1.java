@@ -4,14 +4,13 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
 import data.KlantDummy;
 
-public class AanmeldPage_1 extends WebPage {
+public class AanmeldPage_1 extends BasicPage {
 	private static final long serialVersionUID = 1L;
 
 	public AanmeldPage_1() {

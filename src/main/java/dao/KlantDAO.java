@@ -8,7 +8,7 @@ import data.Klant;
 public class KlantDAO {
 	
 	public static HashMap<Long, Klant> klanten = new HashMap<>();
-
+	
 	public Klant get(long id)
 	{
 		Klant klant = klanten.get(id);

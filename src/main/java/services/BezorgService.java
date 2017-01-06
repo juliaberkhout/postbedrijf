@@ -50,4 +50,12 @@ public class BezorgService {
 		dao.save(pakket);
 	}
 	
+	public String trackPakket(long code)
+	{
+		Pakket pakket = dao.get(code);
+		if (pakket == null)
+			return "Pakket onbekend";
+		return pakket.getStatus().getOmschrijving();
+	}
+	
 }

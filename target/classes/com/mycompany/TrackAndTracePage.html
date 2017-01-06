@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>Apache Wicket Quickstart</title>
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+	</head>
+	<body>
+		<div id="hd">
+			<div id="logo">
+				<img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
+				<h1>Postbedrijf</h1>
+			</div>
+		</div>
+		<div id="bd">
+			<h2>Track-and-trace</h2>
+			Vul je track-and-trace code in:
+			<form wicket:id="trackForm">
+				<div>Code: <input type="text" wicket:id="code"/></div>
+			</form>
+			<a wicket:id="opslaan">Track!</a>
+			<div wicket:id="omschrijving"></div>
+		</div>
+	</body>
+</html>
