@@ -198,7 +198,7 @@ header h2 {
 section#body {
 	padding: 0;
 	background: #80B763;
-	heigth: 100vp;
+	min-height: 100vh;
 }
 
 
@@ -207,6 +207,7 @@ section#content {
 	margin-left: 250px;
 	padding: 20px;
 	background-color: #fff;
+	min-height: 94vh;
 }
 .column-left {
 	float:left;

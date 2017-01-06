@@ -4,6 +4,8 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 
+import data.KlantDummy;
+
 public class BasicPage extends WebPage{
 
 	private static final long serialVersionUID = 1L;
@@ -14,7 +16,7 @@ public class BasicPage extends WebPage{
 
 			@Override
 			public void onClick() {
-				setResponsePage(new AanmeldPage_1());
+				setResponsePage(new AanmeldPage_1(new KlantDummy(), new KlantDummy()));
 			}
 		};
 		add(aanmeldLink.setBody(Model.of("Aanmelden")));

@@ -11,7 +11,7 @@ import org.apache.wicket.model.Model;
 import services.BezorgService;
 import services.TestEmailLogicaImpl;
 
-public class TrackAndTracePage extends WebPage {
+public class TrackAndTracePage extends BasicPage {
 
 	private static final long serialVersionUID = 1L;
 	private TextField<Long> codeField;

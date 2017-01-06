@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html xmlns:wicket="http://wicket.apache.org">
-	<head>
-		<meta charset="utf-8" />
-		<title>Apache Wicket Quickstart</title>
-		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
-	</head>
-	<body>
-		<div id="hd">
-			<div id="logo">
-				<img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
-				<h1>Postbedrijf</h1>
-			</div>
-		</div>
-		<div id="bd">
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>anatine - a free css template</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+<wicket:extend>
+	<article class="expanded">
 			<h2>Track-and-trace</h2>
 			Vul je track-and-trace code in:
 			<form wicket:id="trackForm">
@@ -21,6 +17,8 @@
 			</form>
 			<a wicket:id="opslaan">Track!</a>
 			<div wicket:id="omschrijving"></div>
-		</div>
-	</body>
+</article>
+</wicket:extend>
+
+</body>
 </html>

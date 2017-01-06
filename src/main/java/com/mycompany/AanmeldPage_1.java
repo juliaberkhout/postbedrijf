@@ -13,9 +13,9 @@ import data.KlantDummy;
 public class AanmeldPage_1 extends BasicPage {
 	private static final long serialVersionUID = 1L;
 
-	public AanmeldPage_1() {
+	public AanmeldPage_1(KlantDummy afzender, KlantDummy ontvanger) {
 
-		IModel<KlantDummy> klantModel = new CompoundPropertyModel<KlantDummy>(new KlantDummy());
+		IModel<KlantDummy> klantModel = new CompoundPropertyModel<KlantDummy>(afzender);
 
 		Form<KlantDummy> form = new Form<KlantDummy>("aanmeldForm", klantModel) {
 			private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public class AanmeldPage_1 extends BasicPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				setResponsePage(new AanmeldPage_2(getModelObject()));
+				setResponsePage(new AanmeldPage_2(getModelObject(), afzender == null? new KlantDummy() : ontvanger));
 			}
 		};
 		add(form);
