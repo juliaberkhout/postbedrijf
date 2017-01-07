@@ -1,9 +1,14 @@
 package services;
 
+import static data.PakketStatus.AANGEMELD;
+import static data.PakketStatus.AFGELEVERD;
+import static data.PakketStatus.ONDERWEG;
+import static data.PakketStatus.OPGEHAALD;
+
 import java.time.LocalDateTime;
 
 import dao.PakketDAO;
-import data.Locatie;
+import data.Adres;
 import data.Pakket;
 import data.PakketStatus;
 import data.Rit;
@@ -13,6 +18,7 @@ public class BezorgService {
 	
 	private PakketDAO dao;
 	private EmailService emailService;
+	private Sorteercentrale sorteercentrale = new Sorteercentrale(new Adres("teststraat", "1", "7424TG", "Teststad"), "1234");
 	
 	public BezorgService(EmailLogica emailLogica)
 	{
@@ -20,34 +26,51 @@ public class BezorgService {
 		this.emailService = new EmailService(emailLogica);
 	}
 
-	public void haalPakketAf(long code, Sorteercentrale centrale)
+	public String haalPakketAf(long code)
 	{
 		Pakket pakket = dao.get(code);
-		pakket.setLocatie(centrale);
-		pakket.setStatus(PakketStatus.OPGEHAALD);
+		if (pakket == null)
+			return "Pakket onbekend.";
+		if (!pakket.getStatus().equals(AANGEMELD))
+			return "Het pakket is al afgehaald.";
+		pakket.setLocatie(sorteercentrale);
+		pakket.setStatus(OPGEHAALD);
 		dao.save(pakket);
+		return "Pakket is afgehaald";
+		
 	}
 	
-	public void bezorgPakket(long code, LocalDateTime datumTijd)
+	public String bezorgPakket(long code, LocalDateTime datumTijd)
 	{
 		Pakket pakket = dao.get(code);
-
-		Locatie locatie = pakket.getLocatie();
-		if (!(locatie instanceof Sorteercentrale))
-			throw new UnsupportedOperationException("Het pakket moet eerst bij de klant opgehaald worden!");
-		Rit rit = new Rit(datumTijd, (Sorteercentrale) locatie);
+		if (pakket == null)
+			return "Pakket onbekend.";
+		if (!pakket.getStatus().equals(OPGEHAALD))
+			return "Het pakket moet eerst bij de klant opgehaald worden!";
+		Rit rit = new Rit(datumTijd, (Sorteercentrale) pakket.getLocatie());
 		pakket.setLocatie(rit);
-		pakket.setStatus(PakketStatus.ONDERWEG);
+		pakket.setStatus(ONDERWEG);
 		dao.save(pakket);
+		return "Pakket wordt bezorgd";
 	}
 	
-	public void leverPakketAf(long code)
+	public String leverPakketAf(long code)
 	{
 		Pakket pakket = dao.get(code);
+		if (pakket == null)
+			return "Pakket onbekend.";
+		
+		PakketStatus status = pakket.getStatus();
+		if (!status.equals(ONDERWEG))
+			if (status.equals(AANGEMELD))
+				return "Het pakket moet eerst worden afgehaald.";
+			else if (status.equals(OPGEHAALD))
+				return "Het pakket bevindt zich nog op de sorteercentrale.";
 		pakket.setLocatie(pakket.getOntvanger().getAdres());
-		pakket.setStatus(PakketStatus.AFGELEVERD);
+		pakket.setStatus(AFGELEVERD);
 		emailService.sendBezorgEmail(pakket);
 		dao.save(pakket);
+		return "Het pakket is afgeleverd.";
 	}
 	
 	public String trackPakket(long code)

@@ -54,7 +54,7 @@ public class AanmeldTest {
 		long code = klantService.meldPakketAan(julia, olaf, 10);
 		String melding = klantService.trackPakket(code);
 		assertEquals("Uw pakket is aangemeld en wordt spoedig opgehaald", melding);
-		bezorgService.haalPakketAf(code, sorteercentrale);
+		bezorgService.haalPakketAf(code);
 		assertEquals(PakketStatus.OPGEHAALD, pakketDAO.get(code).getStatus());
 	}
 	
@@ -62,7 +62,7 @@ public class AanmeldTest {
 	public void bezorgTest()
 	{
 		long code = klantService.meldPakketAan(julia, olaf, 10);
-		bezorgService.haalPakketAf(code, sorteercentrale);
+		bezorgService.haalPakketAf(code);
 		bezorgService.bezorgPakket(code, LocalDateTime.now());
 		assertEquals(PakketStatus.ONDERWEG, pakketDAO.get(code).getStatus());
 	}

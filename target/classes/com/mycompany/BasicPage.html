@@ -1,59 +1,24 @@
-<!doctype html>
-<html>
+<html xmlns:wicket>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>anatine - a free css template</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!--
-anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
-
-Download: http://zypopwebtemplates.com/
-
-License: Creative Commons Attribution
-//-->
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
-
-<body>
-	<section id="body" class="width">
-		<aside id="sidebar" class="column-left">
-			<header>
-				<h1>Postbedrijf</h1>
-				<h2>Welkom op de website!</h2>		
-			</header>
-
-			<nav id="mainnav">
-  				<ul>
-                     <li><a wicket:id="homeLink"></a></li>
-                     <li><a wicket:id="aanmeldLink"></a></li>
-                     <li><a wicket:id="traceLink"></a></li>
-                     <li><a href="#">Solutions</a></li>
-                     <li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-
-			
-			
-			</aside>
-			<section id="content">
-                		
-			<wicket:child/>				
-			
-			
-			
-			<footer class="clear">
-				<p>&copy; 2015 sitename. <a href="http://zypopwebtemplates.com/">Free CSS Templates</a> by ZyPOP</p>
-			</footer>
-
-		</section>
-
-		<div class="clear"></div>
-
-	</section>
-	
-
+<body class="overall">
+<div>
+<h1>Postbedrijf</h1>
+<h4>Welkom op de website!</h4>		
+</div>
+<div class="sidebar">
+	<nav id="mainnav">
+  		<ul>
+			<li><a wicket:id="homeLink"></a></li>
+			<li><a wicket:id="aanmeldLink"></a></li>
+			<li><a wicket:id="traceLink"></a></li>
+			<li><a wicket:id="bezorgLink"></a></li>
+		</ul>
+	</nav>
+</div>           		
+<div class="content">
+<wicket:child/>
+</div>
 </body>
 </html>

@@ -33,11 +33,22 @@ public class BasicPage extends WebPage{
 		
 		Link<Void> homeLink = new Link<Void>("homeLink") {
 			
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void onClick() {
 				setResponsePage(new HomePage());
 			}
 		};
 		add(homeLink.setBody(Model.of("Home")));
+		
+		Link<Void> bezorgLink = new Link<Void>("bezorgLink") {
+			private static final long serialVersionUID = 1L;
+			@Override
+			public void onClick() {
+				setResponsePage(new BezorgPage());
+			}
+		};
+		add(bezorgLink.setBody(Model.of("Bezorgen")));
 	}
 }

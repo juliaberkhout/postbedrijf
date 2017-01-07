@@ -1,15 +1,9 @@
-<!doctype html>
-<html>
+<html xmlns:wicket>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>anatine - a free css template</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
 <body>
 <wicket:extend>
-	<article class="expanded">
 		<h2>Meld je pakket aan</h2>
 			<p>Vul je gegenvens van de ontvanger in:</p>
 			<div>
@@ -23,12 +17,9 @@
 				Hoe zwaar is uw pakket?
 				<div><input type="text" wicket:id="gewicht"/></div>
 			</form>
-				<a wicket:id="vorige" class="button"></a>
-				<a wicket:id="opslaan" class="button"></a>
+				<a wicket:id="vorige" class="myButton"></a>
+				<a wicket:id="opslaan" class="myButton"></a>
 			</div>
-
-</article>
 </wicket:extend>
-
 </body>
 </html>

@@ -1,0 +1,21 @@
+<html xmlns:wicket>
+<head>
+</head>
+
+<body>
+<wicket:extend>
+	<h2>Bezorgopties</h2>
+	Vul de code van het pakket in:
+		<div>
+			<form wicket:id="afhaalForm">
+				<div>Code: <input type="text" wicket:id="code"/></div>
+            </form>
+		</div>
+
+		<a wicket:id="afhalen" class="myButton"></a>	
+		<a wicket:id="bezorgen" class="myButton"></a>	
+		<a wicket:id="afleveren" class="myButton"></a>
+        <div wicket:id="omschrijving"></div>
+</wicket:extend>
+</body>
+</html>
