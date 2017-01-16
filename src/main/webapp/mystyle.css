@@ -5,10 +5,14 @@
 .sidebar{
 	max-width:20%;
 	float:left;
-	
 }
+.label{
+	min-width: 150px;
+	display: inline-block;
+}
+
 .content{
-	min-width:75%;
+	min-width:80%;
 	float:right;
 	padding: 10px;
 	border: solid;
